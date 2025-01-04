@@ -30,3 +30,13 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+model InstagramToken {
+  id              Int       @id @default(autoincrement())
+  shopId          String    @unique
+  instagramUserId String    @unique
+  accessToken     String    @unique
+  expiresAt       DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
